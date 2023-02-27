@@ -15,6 +15,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link href="css/main.css" rel="stylesheet">
+<link href="css/radio_star.css" rel="stylesheet">
+<link href="css/extra.css" rel="stylesheet">
+<link rel="stylesheet" href="css/wnoty.css"/>
 </head>
 <body class="bgchatnew2">
 
@@ -157,7 +160,7 @@
                         <div class="col-md-auto col-12 d-flex align-items-center">
 <div class="scrollt">
                                         <ul class="platforms">
-                                            <li><a class="youtube"><i class="fab fa-youtube" style="color: #ff3535;"></i>&nbsp;YouTube</a></li>
+                                            <li class="sel"><a class="youtube"><i class="fab fa-youtube" style="color: #ff3535;"></i>&nbsp;YouTube</a></li>
                                             <li><a class="telegram"><i class="fab fa-telegram-plane" style="color: #35abff;"></i>&nbsp;Telegram</a></li>
                                             <li><a class="tiktok"><i class="fab fa-tiktok" style="color: #000000;filter: drop-shadow(2px 0px 0px #FD3E3E) drop-shadow(-1px -1px 0px #4DE8F4);"></i>&nbsp;TikTok</a></li>
                                             <li><a class="instagram"><i class="fab fa-instagram" style="color: #ff359c;"></i>&nbsp;Instagram</a></li>
@@ -186,12 +189,15 @@
 
 
 <div class="bgblog">
-<div class="heading" style="
- 
-    margin-bottom: -30px;
-">
-<h3 class="heading-section">Статьи</h3>
-</div>
+
+
+  <div class="breadcrumbs">
+    <div class="container">
+        <div><a href="/">Статьи</a></div>
+        <h3>Почему реклама на каналах с YouTube Shorts малоэффективна?</h3>
+    </div>
+  </div>
+
 
 <div class="content-filter main-content__filter">
     
@@ -268,9 +274,32 @@
 <a href="#"><i class="fa-duotone fa-messages"></i>&nbsp;<span>125</span></a>
 <a href="#"><i class="fa-duotone fa-eye"></i>&nbsp;<span>1 254</span></a>
 <a href="#"><i class="fa-duotone fa-clock-two-thirty"></i>&nbsp;<span>8</span></a>
+
+
+<div class="article-rating">
+    <span>Рейтинг: </span>
+    
+        <span class="rating-info">4.47 (2000) голосов </span>
+        
+        <div class="rating">
+            <input type="radio" name="rating_add" id="rate_add_5" value="5" /><label for="rate_add_5"></label>
+            <input type="radio" name="rating_add" id="rate_add_4" value="4" /><label for="rate_add_4"></label>
+            <input type="radio" name="rating_add" id="rate_add_3" value="3" /><label for="rate_add_3"></label>
+            <input type="radio" name="rating_add" id="rate_add_2" value="2" /><label for="rate_add_2"></label>
+            <input type="radio" name="rating_add" id="rate_add_1" value="1" /><label for="rate_add_1"></label>
+        </div>
 </div>
+
+
+
+</div>
+
+
+
+
  
 </div>
+
 </div>
 <div class="post-image">
  <img class="img-responsive" src="/ytnb.png" alt="Blog"> 
@@ -341,22 +370,32 @@
 <div class="post-content">
 <p>Вы должны войти, чтобы оставить комментарий.</p>
 </div>
+
+
+
 <div class="post-comments-form">
-<div class="post-comments-form-group">
-<div class="post-comments-form-item">
-<input class="au-form-control au-form-radius au-form-border" type="text" placeholder="Ваше имя" wfd-id="id0">
+
+  <form action="_test/add_comment_test.json" method="post">
+    <div class="post-comments-form-group">
+    <div class="post-comments-form-item">
+    <input class="au-form-control au-form-radius au-form-border" type="text" placeholder="Ваше имя" wfd-id="id0" name="name">
+    </div>
+    <div class="post-comments-form-item">
+    <input class="au-form-control au-form-radius au-form-border" type="text" placeholder="Ваш адрес электронной почты" wfd-id="id1" name="email">
+    </div>
+    </div>
+    <div class="post-comments-form-textarea">
+    <textarea class="au-form-control au-form-radius au-form-border" placeholder="Ваш комментарий" name="text" id="text"></textarea>
+    </div>
+    <div class="post-comments-submit">
+    <button class="au-btn au-btn-sm">Оставить комментарий</button>
+    </div>
+  </form>
+  
 </div>
-<div class="post-comments-form-item">
-<input class="au-form-control au-form-radius au-form-border" type="text" placeholder="Ваш адрес электронной почты" wfd-id="id1">
-</div>
-</div>
-<div class="post-comments-form-textarea">
-<textarea class="au-form-control au-form-radius au-form-border" placeholder="Ваш комментарий"></textarea>
-</div>
-<div class="post-comments-submit">
-<button class="au-btn au-btn-sm">Оставить комментарий</button>
-</div>
-</div>
+
+
+
 </div>
 <div class="post-comments-list post-paragraph">
 <div class="post-heading">
@@ -445,7 +484,7 @@
                                         <a href="#">Лайфхаки</a>
                                         <a href="#">Обзоры</a>
                                         <a href="#">Кейсы</a>
-                                        <a href="#">Мнения</a>
+                                        <a href="#" class="sel">Мнения</a>
                                         <a href="#">Инфорграфика</a>
                                         <a href="#">Тесты</a>
                                         <a href="#">Вебинары</a>
@@ -612,6 +651,129 @@
 <script src="vendor/jQuery.mmenu/dist/js/jquery.mmenu.min.umd.js"></script>
 <script src="js/mmenu-function.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/wnoty.js"></script>
 
 </body>
 </html>
+
+
+<script>
+
+$(function(){
+    $('.article-rating input:radio').click(function () {
+        var id = 138;
+        var model = 'publication.publication';
+        var rating = $(this).val();
+    
+        $.ajax({
+            type: 'POST',
+            //url: "/vote",
+            url: "_test/vote_test.html", /// For test
+            dataType: 'JSON',
+            cache: false,
+            data: {
+                id: id,
+                model: model,
+                rating: rating,
+            },
+            beforeSend: function () {
+            },
+            success: function (response) {
+                $.wnoty({
+                    type: response.status,
+                    message: response.message,
+                    autohideDelay: 5000,
+                });
+            }
+        });
+    });
+    
+    
+    $(".btn-reply").click(function(){
+        $(".post-comments-form-textarea textarea").focus();
+        
+        /// Any manipulations with form data
+    });
+    
+    
+    
+    
+    
+    
+    $('.post-comments-submit button, .post-comments-submit input:submit').click(function(e) {
+        e.preventDefault();
+        
+        var text=$('textarea[name="text"]').val();
+        var name=$('input[name="name"]').val();
+        var email=$('input[name="email"]').val();
+        
+        
+        if(text.length<5){
+            //// Вызов флешки, types: error,warning,info,success
+            $.wnoty({
+              type: 'error',
+              message: 'Не заполнен текст комментария',
+              autohideDelay: 5000
+            });
+            
+            return false;
+        }
+        
+        
+        if(name.length<3){
+            //// Вызов флешки, types: error,warning,info,success
+            $.wnoty({
+              type: 'error',
+              message: 'Не заполнено имя',
+              autohideDelay: 5000
+            });
+            
+            return false;
+        }
+        
+        
+        if(email.length<5){
+            //// Вызов флешки, types: error,warning,info,success
+            $.wnoty({
+              type: 'error',
+              message: 'Не заполнен email',
+              autohideDelay: 5000
+            });
+            
+            return false;
+        }
+        
+        
+        var $form = $(".post-comments-form form");
+        
+        
+        
+        
+        $.ajax({
+          type: $form.attr('method'),
+          url: $form.attr('action'),
+          data: $form.serialize(),
+          dataType: 'JSON',
+        }).done(function(res) {
+           if(res.status=='success'){
+            $.wnoty({
+              type: 'success',
+              message: res.message,
+              autohideDelay: 5000
+            });
+           }else{
+            $.wnoty({
+              type: 'error',
+              message: res.message,
+              autohideDelay: 5000
+            });
+           }
+        });
+    
+        
+        //отмена действия по умолчанию для кнопки submit
+        return false;
+    });
+});
+
+</script>

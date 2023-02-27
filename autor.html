@@ -16,6 +16,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link href="css/main.css" rel="stylesheet">
+<link href="css/radio_star.css" rel="stylesheet">
+<link href="css/extra.css" rel="stylesheet">
+<link rel="stylesheet" href="css/wnoty.css"/>
 </head>
 <body class="bgchatnew2">
 
@@ -496,7 +499,7 @@
 <div class="agent-body clearfix">
 
 
-<a class="agent-btn au-btn-orange au-btn au-btn-lg" href="#" style="
+<a class="agent-btn au-btn-orange au-btn au-btn-lg" data-toggle="modal" data-target="#author_req" href="#" style="
     display: block;
 "><i class="fa fa-user"></i>  Стать автором
 
@@ -505,6 +508,50 @@
 
 </div>
 </div>
+
+
+
+
+
+<div class="modal fade" id="author_req"  role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h3 class="modal-title" id="myModalLabel">Подать заявку на автора</h3>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="_test/author_req.json" id="author_req_form">
+                <div>
+                    <select name="val_name" class="au-form-control au-form-radius au-form-border">
+                        <option>Статьи</option>
+                        <option>Новости</option>
+                        <option>Модератор</option>
+                        <option>Спец по Ютуб</option>
+                    </select>
+                </div>
+                
+                
+                <div>    
+                    <textarea name="vak_text" id="vak_text" placeholder="Хотите что нибудь добавить от себя?" class="au-form-control au-form-radius au-form-border"></textarea>
+                </div>
+                
+                
+                <div>    
+                    <input type="submit" value="Отправить" class="au-btn au-btn-sm">
+                    
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 <div class="sidebar-heading">
 <h3>Лучший автор:</h3>
 </div>
@@ -684,5 +731,58 @@
 <script src="vendor/jQuery.mmenu/dist/js/jquery.mmenu.min.umd.js"></script>
 <script src="js/mmenu-function.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/wnoty.js"></script>
 </body>
 </html>
+
+
+<script>
+$(function(){
+    $('#author_req_form').submit(function(e) {
+        e.preventDefault();
+        
+        var text=$('textarea[name="vak_text"]').val();
+        
+        
+        if(text.length<5){
+            //// Вызов флешки, types: error,warning,info,success
+            $.wnoty({
+              type: 'error',
+              message: 'Не заполнен текст заявки',
+              autohideDelay: 5000
+            });
+            
+            return false;
+        }
+        
+        
+        var $form = $(this);
+        
+        
+        $.ajax({
+          type: $form.attr('method'),
+          url: $form.attr('action'),
+          data: $form.serialize(),
+          dataType: 'JSON',
+        }).done(function(res) {
+           if(res.status=='success'){
+            $.wnoty({
+              type: 'success',
+              message: res.message,
+              autohideDelay: 5000
+            });
+           }else{
+            $.wnoty({
+              type: 'error',
+              message: res.message,
+              autohideDelay: 5000
+            });
+           }
+        });
+    
+        
+        //отмена действия по умолчанию для кнопки submit
+        return false;
+    });
+});
+</script>
