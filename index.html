@@ -98,6 +98,13 @@
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
 <div class="navbar-main">
 <div class="container">
 <div class="navbar-holder">
@@ -145,7 +152,7 @@
 <nav class="navbar-menu2">
 <ul class="menu2">
 <li>
-<a class="logsign" href="/signup.html">Вход / Регистрация</a>
+<a class="logsign" href="#"  data-toggle="modal" data-target="#auth">Вход / Регистрация</a>
 </li>
 </ul>
 </nav>
@@ -154,6 +161,14 @@
 </div>
 </div>
 </header>
+
+
+
+
+
+
+
+
 <section class="heading-page heading-services-list invert" style="">
 <div class="container">
 <div class="row align-items-center">
@@ -179,6 +194,131 @@
                                              </div>
 </div>
 </section>
+
+
+
+
+<!---- Попап с авторизацией -->
+<div class="modal fade" id="auth"  role="dialog" aria-labelledby="authModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h3 class="modal-title" id="authModalLabel">Вход / Регистрация</h3>
+            </div>
+            <div class="modal-body">
+                
+                
+                <!---- Содержимое попапа -->
+                <ul class="nav nav-tabs signin" id="myTab" role="tablist" style="
+                    border-bottom: 1px solid #ddd0;
+                ">
+                  <li class="nav-item active" role="presentation">
+                    <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="true" aria-expanded="true">Вход в личный кабинет</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false" aria-expanded="false">Регистрация</a>
+                  </li>
+                  
+                </ul>
+                
+                <div class="tab-content" id="auth_TabContent">
+                
+                <div class="tab-pane fade active in" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+                    <section class="quote-form quote-form-style-1">
+                    <div class="logintext">
+                        <center><h3>Вход в личный аккаунт</h3></center>
+                    </div>
+                    <div class="form-group signin">
+                        <form  id="auth_form_popup" action="_test/auth.err">
+                            <div class="form-item">
+                                <div class="label">
+                                    <span>Email или логин</span>
+                                </div>
+                                <div class="form-input">
+                                    <input class="au-form-control au-form-radius au-form-border" type="text" id="auth_email_popup">
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <div class="label">
+                                    <span>Пароль</span>
+                                </div>
+                                <div class="form-input">
+                                    <input class="au-form-control au-form-radius au-form-border" type="password" id="auth_pass_popup">
+                                </div>
+                            </div>
+                            
+                            <div class="form-button">
+                                <input type="submit" name="login" value="Войти" class="au-btn au-btn-orange au-btn-md">
+                            </div>
+                        </form>
+                    </div> 
+                    
+                    
+                    
+                    </section>
+                </div>
+                
+                
+                
+                <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+                  <section class="quote-form quote-form-style-1">
+                    <div class="logintext">
+                    <center><h3>Регистрация нового аккаунта</h3></center>
+                    </div>
+                
+                    <div class="form-group signin">
+                        <form id="reg_form_popup" action="signup.html">
+                            <div class="form-item">
+                                <div class="label">
+                                    <span>Email</span>
+                                </div>
+                                <div class="form-input">
+                                    <input class="au-form-control au-form-radius au-form-border" type="email" id="reg_email_popup">
+                                </div>
+                            </div>
+                            
+                            <div class="form-item">
+                                <div class="label">
+                                    <span>Логин</span>
+                                </div>
+                                <div class="form-input">
+                                    <input class="au-form-control au-form-radius au-form-border" type="text" id="reg_login_popup">
+                                </div>
+                            </div>
+                            <div class="form-item">
+                                <div class="label">
+                                    <span>Пароль *</span>
+                                </div>
+                                <div class="form-input">
+                                    <input class="au-form-control au-form-radius au-form-border" type="password" id="reg_pass_popup">
+                                </div>
+                            </div>
+                            
+                            <div class="form-item">
+                                <div class="label">
+                                    <span>Повтор пароля *</span>
+                                </div>
+                                <div class="form-input">
+                                    <input class="au-form-control au-form-radius au-form-border" type="password" id="reg_pass_rep_popup">
+                                </div>
+                            </div>
+                            
+                            <div class="form-button">
+                                <input type="submit" name="reg" value="Зарегистрироваться" class="au-btn au-btn-orange au-btn-md">
+                            </div>
+                        </form>
+                    </div>
+               </div>
+              </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div class="page-content blog-list">
 
  
@@ -401,7 +541,7 @@
 </div>
 
 
-<div class="blog-item" style="
+<div id="order_service" class="blog-item" style="
     margin-top: 30px;
 ">
  
@@ -639,5 +779,13 @@
 <script src="js/mmenu-function.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/wnoty.js"></script>
+<script src="js/extra.js"></script>
 </body>
 </html>
+
+
+<script>
+$("#order_service").click(function(){
+    location.href="/";
+});
+</script>
