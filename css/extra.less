@@ -89,6 +89,8 @@
 
 .articles-author{
     .team-image{
+        
+        
         &:after{
             content:none !important;
         }
@@ -96,7 +98,64 @@
 }
 
 
-#author_req{
+.author-single{
+    text-align:center;
+    
+    
+    .team-image{
+        float:none !important;
+        width:100% !important;
+        text-align:center;
+        
+        &:after{
+            content:none !important;
+        }
+        
+        img{
+            width:60%;
+            display:inline-block;
+            border-radius:400px !important;
+        }
+    }
+    
+    .team-info{
+        margin-left:0px !important;
+        padding-bottom:20px;
+    }
+    
+    .author-mail{
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    
+    
+    .author-contacts{
+        margin-top:40px;
+        text-align:left;
+        
+        a{
+            display:block;
+            font-size:18px;
+        }
+    }
+    
+    
+    .name{
+        span{
+            color:black;
+            font-weight:bold;
+            font-size:18px;
+        }
+        
+        
+        .knowsAbout{
+            display:none;
+        }
+    }
+}
+
+
+#author_req, #mail_author{
     form{
         &>div{
             &:not(:last-child){
